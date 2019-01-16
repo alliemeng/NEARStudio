@@ -134,9 +134,8 @@ jest.mock("../../../src/utils/download", () => ({ ...downloadService }));
 
 import { App, EmbeddingParams, AppWindowContext, EmbeddingType } from "../../../src/components/App";
 
-
-var localStorageMock = (function() {
-  var store = {};
+const localStorageMock = (function() {
+  let store = {};
   return {
     getItem: function(key) {
       return store[key];
@@ -152,8 +151,7 @@ var localStorageMock = (function() {
     }
   };
 })();
-Object.defineProperty(window, 'localStorage', { value: localStorageMock });
-
+Object.defineProperty(window, "localStorage", { value: localStorageMock });
 
 describe("Tests for App", () => {
   const setup = (props: any = {}) => {
